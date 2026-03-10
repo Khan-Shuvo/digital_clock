@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import TimeUnit from "./TimeUnit"
+import { motion } from "motion/react";
 
 export default function DigitalClock() {
 
@@ -27,13 +28,17 @@ export default function DigitalClock() {
 
     return(
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950  text-white p-4">
-            <div className=" p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl flex gap-4 text-6xl md:text-8xl font-mono font-bold">
+            <motion.div
+            initial={{opacity: 0, scale: 0.9}}
+            whileInView={{opacity: 1, scale: 1}}
+            transition={{duration: .5}}
+             className=" p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl flex gap-4 text-6xl md:text-8xl font-mono font-bold">
                 <TimeUnit value = {hours} lable = "Hours"/>
                 <span className="animate-pulse text-blue-500 ">:</span>
                 <TimeUnit value = {minutes} lable = "Minutes"/>
                 <span className="animate-pulse text-blue-500 ">:</span>
                 <TimeUnit value = {seconds} lable = "Seconds"/>
-            </div>
+            </motion.div>
         </div>
     )
     
