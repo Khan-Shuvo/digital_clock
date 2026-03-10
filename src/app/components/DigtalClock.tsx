@@ -22,22 +22,40 @@ export default function DigitalClock() {
 
     const formatTime = (unit: number) => unit.toString().padStart(2, '0')
 
-    const hours = formatTime(time.getHours())
+    const hours = time.getHours()
+    const displayHours = formatTime((hours % 12 || 12 ))
     const minutes = formatTime(time.getMinutes())
     const seconds = formatTime(time.getSeconds())
+    const ampm = hours >= 12 ? 'PM' : 'AM'  
+    
+    const dateString = time.toLocaleDateString('en-US',{
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    })
 
     return(
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950  text-white p-4">
+            <motion.div initial={{opacity: 0, y: -10}}
+            animate={{opacity: 1, y:0}}
+            className="text-blue-400 font-medium tracking-widest mb-6 uppercase text-sm md:text-base">
+                {dateString}
+            </motion.div>
             <motion.div
             initial={{opacity: 0, scale: 0.9}}
             whileInView={{opacity: 1, scale: 1}}
             transition={{duration: .5}}
              className=" p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl flex gap-4 text-6xl md:text-8xl font-mono font-bold">
-                <TimeUnit value = {hours} lable = "Hours"/>
+                <TimeUnit value = {displayHours} lable = "Hours"/>
                 <span className="animate-pulse text-blue-500 ">:</span>
                 <TimeUnit value = {minutes} lable = "Minutes"/>
                 <span className="animate-pulse text-blue-500 ">:</span>
                 <TimeUnit value = {seconds} lable = "Seconds"/>
+
+                <div className="text-xl md:text-3xl text-blue-500 font-mono self-start mt-2">
+                    {ampm}
+                </div>
             </motion.div>
         </div>
     )
