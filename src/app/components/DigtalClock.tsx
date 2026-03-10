@@ -46,7 +46,7 @@ export default function DigitalClock() {
             initial={{opacity: 0, scale: 0.9}}
             whileInView={{opacity: 1, scale: 1}}
             transition={{duration: .5}}
-             className=" p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl flex gap-4 text-6xl md:text-8xl font-mono font-bold">
+             className="p-8 md:p-12 rounded-[3rem] bg-slate-900/20 border border-slate-800 backdrop-blur-xl flex items-baseline gap-3 md:gap-6 text-6xl md:text-9xl font-bold shadow-2xl">
                 <TimeUnit value = {displayHours} lable = "Hours"/>
                 <span className="animate-pulse text-blue-500 ">:</span>
                 <TimeUnit value = {minutes} lable = "Minutes"/>
