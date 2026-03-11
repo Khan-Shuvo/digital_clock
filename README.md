@@ -29,29 +29,28 @@ A sleek, high-performance digital clock built with **Next.js 16**, featuring rea
 3. **Hydration Fix:** Implements a `mounted` state to ensure the client-side time matches the rendered HTML, avoiding hydration errors.
 4. **Formating:** Uses `padStart(2, '0')` to ensure a consistent `00:00:00` display format.
 
-##  Getting Started
+## Getting Started
 
-**First, clone the repository:**
-
+### 1. Clone the repository
 ```bash
-git clone [https://github.com/Khan-Shuvo/digital_clock](https://github.com/Khan-Shuvo/digital_clock.git)
+git clone https://github.com/Khan-Shuvo/digital_clock.git
+```
 
-**Navigate to the project directory:**
-
+### 2. Navigate to the project directory
 ```bash
 cd digital_clock
+```
 
-**Install dependencies:**
-
-```bash 
-npm install 
+### 3. Install dependencies
+```bash
+npm install
 # or
-yarn install 
+yarn install
+```
 
-**Run the project**
-
+### 4. Run the project
 ```bash
 npm run dev
-#or
-yarn install
-
+# or
+yarn dev
+```
