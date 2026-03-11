@@ -55,9 +55,11 @@ export default function DigitalClock() {
                     <span className="animate-pulse text-blue-500 ">:</span>
                     <TimeUnit value={seconds} lable="Seconds" />
 
-                    <div className="text-xl md:text-3xl text-blue-500 font-mono self-start mt-2">
-                        {ampm}
-                    </div>
+                    {!is24Hour && (
+                        <div className="text-xl md:text-3xl text-blue-500 font-mono self-start mt-2">
+                            {ampm}
+                        </div>
+                    )}
                 </motion.div>
 
                 <motion.button
@@ -65,7 +67,7 @@ export default function DigitalClock() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: .5 }}
                     whileHover={{ scale: 1.05 }}
-                    whileTap={{scale: 1 }}
+                    whileTap={{ scale: 1 }}
                     onClick={() => setIs24Hour(!is24Hour)}
                     className="mb-8 px-4 py-2 rounded-full border border-slate-600 bg-slate-900/50 hover:bg-blue-600/20 hover:border-blue-500 transition-all text-xl font-bold tracking-widest uppercase text-slate-400 hover:text-white">
                     Switch to {is24Hour ? "12-Hour" : "24-Hour"}
